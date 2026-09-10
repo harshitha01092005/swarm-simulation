@@ -1,0 +1,23 @@
+{
+  "passed": false,
+  "error": "TimeoutError: Timed out waiting for initial formation completion; last state=TRANSITIONING",
+  "count": 400,
+  "wall_seconds": 90.27639326399998,
+  "formations": [],
+  "observed_states": [
+    "IDLE",
+    "TAKEOFF",
+    "TRANSITIONING"
+  ],
+  "observed_minimum_separation_m": 1.5000999999999998,
+  "observed_maximum_interval_speed_m_s": 6.158221350945453,
+  "observed_maximum_tracking_error_m": 0.21993360448707833,
+  "received_gazebo_pose_batches_hz": 4.104161842645726,
+  "maximum_control_update_hz": 30.13255380403577,
+  "mean_control_update_hz": 28.67893778136757,
+  "mean_real_time_factor": 0.13726537863452998,
+  "visible_cpus": 4,
+  "separation_requirement": "No exact overlap; strict configured separation is a separate collision-avoidance gate",
+  "average_container_cpu_cores": 1.3058924664273925,
+  "container_peak_memory_mib": 2975.58203125
+}

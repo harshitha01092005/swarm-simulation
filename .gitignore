@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+.venv/
+build/
+install/
+log/
+*.egg-info/
+.pytest_cache/
+.DS_Store
+*.log
+
+# Local credentials, editor/agent state, and machine diagnostics.
+.env
+.env.*
+!.env.example
+.codex/
+.agents/
+artifacts/colima-dns-diagnosis.md
+
+# Intermediate desktop captures; retain the final workflow evidence.
+artifacts/desktop-initial.*
+artifacts/desktop-running.*
+artifacts/desktop-workflow-before-lighting.*

@@ -1,0 +1,35 @@
+{
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.10.13",
+  "numpy": "2.2.6",
+  "measurement": "CPU core only; excludes Gazebo, ROS and renderer",
+  "results": [
+    {
+      "count": 100,
+      "image_processing_ms": 139.8187080048956,
+      "image_assignment_planning_ms": 1.9460830080788583,
+      "controller_step_p95_ms": 0.010625022696331143,
+      "snapshot_json_p95_ms": 0.26463095855433494,
+      "certified_separation_m": 1.5000009999999986,
+      "depth_layers": 5
+    },
+    {
+      "count": 200,
+      "image_processing_ms": 21.52454198221676,
+      "image_assignment_planning_ms": 5.361166986403987,
+      "controller_step_p95_ms": 0.010834017302840948,
+      "snapshot_json_p95_ms": 0.5125472802319564,
+      "certified_separation_m": 1.5000010000000008,
+      "depth_layers": 10
+    },
+    {
+      "count": 400,
+      "image_processing_ms": 28.76775001641363,
+      "image_assignment_planning_ms": 28.406333993189037,
+      "controller_step_p95_ms": 0.015726752462796863,
+      "snapshot_json_p95_ms": 1.0573993960861117,
+      "certified_separation_m": 1.500001,
+      "depth_layers": 20
+    }
+  ]
+}

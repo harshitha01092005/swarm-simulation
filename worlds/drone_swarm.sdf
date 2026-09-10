@@ -1,0 +1,220 @@
+<?xml version="1.0"?>
+<sdf version="1.9">
+  <world name="swarm_world">
+    <physics name="phase1_physics" type="ignored">
+      <max_step_size>0.004</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+    <gravity>0 0 -9.81</gravity>
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+
+    <scene>
+      <ambient>0.42 0.46 0.56 1</ambient>
+      <background>0.055 0.08 0.15 1</background>
+      <shadows>true</shadows>
+      <fog>
+        <type>linear</type>
+        <color>0.085 0.11 0.18 1</color>
+        <start>45</start><end>140</end><density>0.005</density>
+      </fog>
+    </scene>
+    <light name="sunset" type="directional">
+      <pose>0 0 30 0 0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <diffuse>0.95 0.72 0.52 1</diffuse>
+      <specular>0.3 0.25 0.2 1</specular>
+      <direction>-0.7 0.35 -0.6</direction>
+    </light>
+    <light name="cool_fill" type="directional">
+      <cast_shadows>false</cast_shadows>
+      <diffuse>0.25 0.38 0.65 1</diffuse>
+      <specular>0.1 0.18 0.3 1</specular>
+      <direction>0.5 -0.3 -0.8</direction>
+    </light>
+
+    <gui fullscreen="false">
+      <plugin filename="MinimalScene" name="3D View">
+        <gz-gui>
+          <title>Drone Swarm · Phase 1</title>
+          <property type="bool" key="showTitleBar">false</property>
+          <property type="string" key="state">docked</property>
+        </gz-gui>
+        <engine>ogre2</engine>
+        <scene>scene</scene>
+        <ambient_light>0.42 0.46 0.56</ambient_light>
+        <background_color>0.055 0.08 0.15</background_color>
+        <camera_pose>8 -10 7 0 0.34 2.2455</camera_pose>
+      </plugin>
+      <plugin filename="GzSceneManager" name="Scene Manager">
+        <gz-gui>
+          <property type="string" key="state">floating</property>
+          <property type="bool" key="showTitleBar">false</property>
+          <property type="double" key="width">5</property>
+          <property type="double" key="height">5</property>
+        </gz-gui>
+      </plugin>
+      <plugin filename="InteractiveViewControl" name="Interactive view control">
+        <gz-gui>
+          <property type="string" key="state">floating</property>
+          <property type="bool" key="showTitleBar">false</property>
+          <property type="double" key="width">5</property>
+          <property type="double" key="height">5</property>
+        </gz-gui>
+      </plugin>
+      <plugin filename="CameraTracking" name="Camera Tracking">
+        <gz-gui>
+          <property type="string" key="state">floating</property>
+          <property type="bool" key="showTitleBar">false</property>
+          <property type="double" key="width">5</property>
+          <property type="double" key="height">5</property>
+        </gz-gui>
+      </plugin>
+      <plugin filename="WorldControl" name="World control">
+        <gz-gui>
+          <property type="string" key="state">floating</property>
+          <property type="bool" key="showTitleBar">false</property>
+          <property type="bool" key="resizable">false</property>
+          <property type="double" key="height">72</property>
+          <property type="double" key="z">1</property>
+          <anchors target="3D View">
+            <line own="left" target="left"/><line own="bottom" target="bottom"/>
+          </anchors>
+        </gz-gui>
+        <play_pause>true</play_pause><step>true</step>
+        <start_paused>false</start_paused><use_event>true</use_event>
+      </plugin>
+      <plugin filename="WorldStats" name="World stats">
+        <gz-gui>
+          <property type="string" key="state">floating</property>
+          <property type="bool" key="showTitleBar">false</property>
+          <property type="bool" key="resizable">false</property>
+          <property type="double" key="height">110</property>
+          <property type="double" key="width">285</property>
+          <property type="double" key="z">1</property>
+          <anchors target="3D View">
+            <line own="right" target="right"/><line own="bottom" target="bottom"/>
+          </anchors>
+        </gz-gui>
+        <sim_time>true</sim_time><real_time>true</real_time>
+        <real_time_factor>true</real_time_factor><iterations>true</iterations>
+      </plugin>
+    </gui>
+
+    <model name="ground">
+      <static>true</static>
+      <link name="ground_link">
+        <collision name="ground_collision">
+          <geometry><plane><normal>0 0 1</normal><size>200 200</size></plane></geometry>
+        </collision>
+        <visual name="ground_visual">
+          <geometry><plane><normal>0 0 1</normal><size>200 200</size></plane></geometry>
+          <material><ambient>0.055 0.09 0.11 1</ambient><diffuse>0.09 0.14 0.16 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="flight_deck">
+      <static>true</static>
+      <link name="deck_link">
+        <collision name="deck_collision">
+          <pose>0 0 0.06 0 0 0</pose>
+          <geometry><box><size>18 18 0.12</size></box></geometry>
+        </collision>
+        <visual name="deck_surface">
+          <pose>0 0 0.06 0 0 0</pose>
+          <geometry><box><size>18 18 0.12</size></box></geometry>
+          <material><ambient>0.12 0.16 0.2 1</ambient><diffuse>0.2 0.25 0.31 1</diffuse></material>
+        </visual>
+        <visual name="north_edge">
+          <pose>0 8.8 0.125 0 0 0</pose>
+          <geometry><box><size>17.6 0.07 0.008</size></box></geometry>
+          <material><diffuse>0.15 0.75 0.9 1</diffuse><emissive>0.05 0.45 0.6 1</emissive></material>
+        </visual>
+        <visual name="south_edge">
+          <pose>0 -8.8 0.125 0 0 0</pose>
+          <geometry><box><size>17.6 0.07 0.008</size></box></geometry>
+          <material><diffuse>0.15 0.75 0.9 1</diffuse><emissive>0.05 0.45 0.6 1</emissive></material>
+        </visual>
+        <visual name="east_edge">
+          <pose>8.8 0 0.125 0 0 0</pose>
+          <geometry><box><size>0.07 17.6 0.008</size></box></geometry>
+          <material><diffuse>0.15 0.75 0.9 1</diffuse><emissive>0.05 0.45 0.6 1</emissive></material>
+        </visual>
+        <visual name="west_edge">
+          <pose>-8.8 0 0.125 0 0 0</pose>
+          <geometry><box><size>0.07 17.6 0.008</size></box></geometry>
+          <material><diffuse>0.15 0.75 0.9 1</diffuse><emissive>0.05 0.45 0.6 1</emissive></material>
+        </visual>
+        <visual name="x_reference">
+          <pose>0 0 0.127 0 0 0</pose>
+          <geometry><box><size>17 0.028 0.005</size></box></geometry>
+          <material><ambient>0.3 0.38 0.46 1</ambient><diffuse>0.4 0.5 0.6 1</diffuse></material>
+        </visual>
+        <visual name="y_reference">
+          <pose>0 0 0.127 0 0 0</pose>
+          <geometry><box><size>0.028 17 0.005</size></box></geometry>
+          <material><ambient>0.3 0.38 0.46 1</ambient><diffuse>0.4 0.5 0.6 1</diffuse></material>
+        </visual>
+        <visual name="landing_pad_border">
+          <pose>0 0 0.135 0 0 0</pose>
+          <geometry><cylinder><radius>1.35</radius><length>0.012</length></cylinder></geometry>
+          <material><ambient>0.08 0.7 0.8 1</ambient><diffuse>0.1 0.85 0.95 1</diffuse><emissive>0.03 0.3 0.35 1</emissive></material>
+        </visual>
+        <visual name="landing_pad_fill">
+          <pose>0 0 0.144 0 0 0</pose>
+          <geometry><cylinder><radius>1.25</radius><length>0.009</length></cylinder></geometry>
+          <material><ambient>0.1 0.16 0.22 1</ambient><diffuse>0.14 0.22 0.3 1</diffuse></material>
+        </visual>
+        <visual name="landing_mark_left">
+          <pose>-0.38 0 0.154 0 0 0</pose>
+          <geometry><box><size>0.13 1.10 0.008</size></box></geometry>
+          <material><diffuse>0.9 0.96 1 1</diffuse><emissive>0.3 0.38 0.45 1</emissive></material>
+        </visual>
+        <visual name="landing_mark_right">
+          <pose>0.38 0 0.154 0 0 0</pose>
+          <geometry><box><size>0.13 1.10 0.008</size></box></geometry>
+          <material><diffuse>0.9 0.96 1 1</diffuse><emissive>0.3 0.38 0.45 1</emissive></material>
+        </visual>
+        <visual name="landing_mark_center">
+          <pose>0 0 0.154 0 0 0</pose>
+          <geometry><box><size>0.76 0.13 0.008</size></box></geometry>
+          <material><diffuse>0.9 0.96 1 1</diffuse><emissive>0.3 0.38 0.45 1</emissive></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Distant silhouettes give a horizon without model downloads or sensors. -->
+    <model name="distant_hangars">
+      <static>true</static>
+      <link name="hangars_link">
+        <visual name="hangar_west">
+          <pose>-24 38 3 0 0 0</pose>
+          <geometry><box><size>16 9 6</size></box></geometry>
+          <material><ambient>0.12 0.16 0.24 1</ambient><diffuse>0.16 0.21 0.3 1</diffuse></material>
+        </visual>
+        <visual name="hangar_east">
+          <pose>21 43 4 0 0 0</pose>
+          <geometry><box><size>21 12 8</size></box></geometry>
+          <material><ambient>0.10 0.14 0.21 1</ambient><diffuse>0.15 0.2 0.28 1</diffuse></material>
+        </visual>
+        <visual name="control_tower">
+          <pose>2 47 5.5 0 0 0</pose>
+          <geometry><box><size>4 5 11</size></box></geometry>
+          <material><ambient>0.1 0.14 0.22 1</ambient><diffuse>0.16 0.21 0.3 1</diffuse></material>
+        </visual>
+        <visual name="tower_windows">
+          <pose>2 44.48 9 0 0 0</pose>
+          <geometry><box><size>3.5 0.04 1.0</size></box></geometry>
+          <material><diffuse>1 0.65 0.28 1</diffuse><emissive>0.55 0.3 0.08 1</emissive></material>
+        </visual>
+        <visual name="hangar_window_west">
+          <pose>-24 33.48 3.5 0 0 0</pose>
+          <geometry><box><size>13 0.04 0.35</size></box></geometry>
+          <material><diffuse>0.3 0.65 0.85 1</diffuse><emissive>0.1 0.28 0.4 1</emissive></material>
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>

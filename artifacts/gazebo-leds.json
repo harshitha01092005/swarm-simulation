@@ -1,0 +1,139 @@
+{
+  "started_at": "2026-09-10T19:03:43.576698+00:00",
+  "container": "drone-swarm-app",
+  "url": "http://127.0.0.1:8765",
+  "passed": true,
+  "checks": [
+    {
+      "name": "red",
+      "expected_rgb": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "passed": true,
+      "source": "/world/fleet_world/state",
+      "identity_source": "/world/fleet_world/scene/info",
+      "world": "fleet_world",
+      "world_id": 1,
+      "scene_name": "",
+      "ownership_verified": true,
+      "model": "drone_001",
+      "model_id": 30,
+      "link": "base_link",
+      "link_id": 31,
+      "visual": "show_light",
+      "visual_id": 50,
+      "material_type_id": 5653939253203759928,
+      "emissive_rgba": [
+        1.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "diffuse_rgba": [
+        1.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scene_cached_emissive_rgba": [
+        0.20000000298023224,
+        0.800000011920929,
+        1.0,
+        1.0
+      ],
+      "material_sha256": "bfaecaec66e9c686651cfcde7b2a505299515bc940e126a9b84a4a87d920bf8a",
+      "simulation_time": 413.841650113
+    },
+    {
+      "name": "blue",
+      "expected_rgb": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "passed": true,
+      "source": "/world/fleet_world/state",
+      "identity_source": "/world/fleet_world/scene/info",
+      "world": "fleet_world",
+      "world_id": 1,
+      "scene_name": "",
+      "ownership_verified": true,
+      "model": "drone_001",
+      "model_id": 30,
+      "link": "base_link",
+      "link_id": 31,
+      "visual": "show_light",
+      "visual_id": 50,
+      "material_type_id": 5653939253203759928,
+      "emissive_rgba": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "diffuse_rgba": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "scene_cached_emissive_rgba": [
+        0.20000000298023224,
+        0.800000011920929,
+        1.0,
+        1.0
+      ],
+      "material_sha256": "41f6d7474648f7eedef409355e1876854c2f4a616cac74bf8abdf0994f57ea0d",
+      "simulation_time": 417.808316621
+    }
+  ],
+  "restored": true,
+  "evidence": "Gazebo ECS Material bytes; controller RGB is used only as a command acknowledgement",
+  "original_lighting": {
+    "color_mode": "image",
+    "color": [
+      0.2,
+      0.8,
+      1
+    ],
+    "brightness": 1
+  },
+  "initial_material": {
+    "source": "/world/fleet_world/state",
+    "identity_source": "/world/fleet_world/scene/info",
+    "world": "fleet_world",
+    "world_id": 1,
+    "scene_name": "",
+    "ownership_verified": true,
+    "model": "drone_001",
+    "model_id": 30,
+    "link": "base_link",
+    "link_id": 31,
+    "visual": "show_light",
+    "visual_id": 50,
+    "material_type_id": 5653939253203759928,
+    "emissive_rgba": [
+      0.34117648005485535,
+      0.20392157137393951,
+      0.09803921729326248,
+      1.0
+    ],
+    "diffuse_rgba": [
+      0.34117648005485535,
+      0.20392157137393951,
+      0.09803921729326248,
+      1.0
+    ],
+    "scene_cached_emissive_rgba": [
+      0.20000000298023224,
+      0.800000011920929,
+      1.0,
+      1.0
+    ],
+    "material_sha256": "11878809bab79e7123fcfc92f06f457d19dc91e9914f2fc3a625cd420b4bcebb",
+    "simulation_time": 409.799983608
+  },
+  "wall_seconds": 12.681
+}

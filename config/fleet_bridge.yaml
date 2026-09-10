@@ -1,0 +1,35 @@
+# Identity is carried in each Pose.header child_frame_id entry by ros_gz_bridge.
+# These are application topics, not the global /tf tree.
+- ros_topic_name: /clock
+  gz_topic_name: /clock
+  ros_type_name: rosgraph_msgs/msg/Clock
+  gz_type_name: gz.msgs.Clock
+  direction: GZ_TO_ROS
+  qos_profile: CLOCK
+
+- ros_topic_name: /swarm/reference
+  gz_topic_name: /swarm/reference
+  ros_type_name: tf2_msgs/msg/TFMessage
+  gz_type_name: gz.msgs.Pose_V
+  direction: ROS_TO_GZ
+  subscriber_queue: 1
+  publisher_queue: 1
+
+- ros_topic_name: /swarm/poses
+  gz_topic_name: /swarm/poses
+  ros_type_name: tf2_msgs/msg/TFMessage
+  gz_type_name: gz.msgs.Pose_V
+  direction: GZ_TO_ROS
+  qos_profile: SENSOR_DATA
+  subscriber_queue: 1
+  publisher_queue: 1
+
+# Dedicated RGB protocol: translation=RGB in [0,1], rotation=identity,
+# frame_id=world and child_frame_id=drone_NNN. This is not spatial /tf data.
+- ros_topic_name: /swarm/colors
+  gz_topic_name: /swarm/colors
+  ros_type_name: tf2_msgs/msg/TFMessage
+  gz_type_name: gz.msgs.Pose_V
+  direction: ROS_TO_GZ
+  subscriber_queue: 1
+  publisher_queue: 1

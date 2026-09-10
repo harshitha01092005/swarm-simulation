@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "error": null,
+  "count": 200,
+  "wall_seconds": 67.24251739600004,
+  "formations": [
+    {
+      "formation": "image",
+      "wall_seconds": 23.35879976000001,
+      "target_error_m": 0.0007343618287285708,
+      "measured_displacement_m": 23.29978468285717
+    },
+    {
+      "formation": "star",
+      "wall_seconds": 8.500086240999963,
+      "target_error_m": 5.337596404947289e-07,
+      "measured_displacement_m": 10.913829422727996
+    }
+  ],
+  "observed_states": [
+    "FORMATION_COMPLETE",
+    "IDLE",
+    "TAKEOFF",
+    "TRANSITIONING"
+  ],
+  "observed_minimum_separation_m": 1.5,
+  "observed_maximum_interval_speed_m_s": 4.999606717363233,
+  "observed_maximum_tracking_error_m": 0.16666412853376827,
+  "received_gazebo_pose_batches_hz": 29.959123374622344,
+  "maximum_control_update_hz": 30.038262195760243,
+  "mean_control_update_hz": 29.984096145922724,
+  "mean_real_time_factor": 0.9990977631416832,
+  "visible_cpus": 4,
+  "separation_requirement": "No exact overlap; strict configured separation is a separate collision-avoidance gate",
+  "average_container_cpu_cores": 0.5485334743400501,
+  "container_peak_memory_mib": 1600.375
+}

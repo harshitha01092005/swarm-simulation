@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<sdf version="1.9">
+  <model name="drone_001">
+    <static>false</static>
+    <self_collide>false</self_collide>
+    <!-- Reduced physics: Gazebo integrates commanded velocity; this model does
+         not simulate motor thrust, aerodynamic lift, or an autopilot. -->
+    <link name="base_link">
+      <gravity>false</gravity>
+      <inertial>
+        <mass>1.2</mass>
+        <inertia>
+          <ixx>0.025</ixx><ixy>0</ixy><ixz>0</ixz>
+          <iyy>0.025</iyy><iyz>0</iyz><izz>0.045</izz>
+        </inertia>
+      </inertial>
+      <collision name="body_collision">
+        <geometry><box><size>0.30 0.22 0.12</size></box></geometry>
+      </collision>
+      <collision name="left_skid_collision">
+        <pose>0 0.17 -0.17 0 0 0</pose>
+        <geometry><box><size>0.40 0.035 0.035</size></box></geometry>
+      </collision>
+      <collision name="right_skid_collision">
+        <pose>0 -0.17 -0.17 0 0 0</pose>
+        <geometry><box><size>0.40 0.035 0.035</size></box></geometry>
+      </collision>
+      <visual name="body">
+        <geometry><box><size>0.30 0.22 0.12</size></box></geometry>
+        <material>
+          <ambient>0.14 0.19 0.27 1</ambient><diffuse>0.22 0.28 0.38 1</diffuse>
+          <specular>0.5 0.6 0.7 1</specular>
+        </material>
+      </visual>
+      <visual name="top_shell">
+        <pose>0 0 0.07 0 0 0</pose>
+        <geometry><box><size>0.22 0.16 0.045</size></box></geometry>
+        <material><ambient>0.75 0.85 0.95 1</ambient><diffuse>0.85 0.92 1 1</diffuse></material>
+      </visual>
+      <visual name="arm_front_left_back_right">
+        <pose>0 0 0 0 0 0.785398</pose>
+        <geometry><box><size>0.86 0.04 0.04</size></box></geometry>
+        <material><ambient>0.1 0.14 0.19 1</ambient><diffuse>0.2 0.24 0.3 1</diffuse></material>
+      </visual>
+      <visual name="arm_front_right_back_left">
+        <pose>0 0 0 0 0 -0.785398</pose>
+        <geometry><box><size>0.86 0.04 0.04</size></box></geometry>
+        <material><ambient>0.1 0.14 0.19 1</ambient><diffuse>0.2 0.24 0.3 1</diffuse></material>
+      </visual>
+      <visual name="motor_front_left">
+        <pose>0.29 0.29 0.025 0 0 0</pose>
+        <geometry><cylinder><radius>0.043</radius><length>0.07</length></cylinder></geometry>
+        <material><ambient>0.2 0.3 0.4 1</ambient><diffuse>0.4 0.5 0.6 1</diffuse></material>
+      </visual>
+      <visual name="motor_front_right">
+        <pose>0.29 -0.29 0.025 0 0 0</pose>
+        <geometry><cylinder><radius>0.043</radius><length>0.07</length></cylinder></geometry>
+        <material><ambient>0.2 0.3 0.4 1</ambient><diffuse>0.4 0.5 0.6 1</diffuse></material>
+      </visual>
+      <visual name="motor_back_left">
+        <pose>-0.29 0.29 0.025 0 0 0</pose>
+        <geometry><cylinder><radius>0.043</radius><length>0.07</length></cylinder></geometry>
+        <material><ambient>0.2 0.3 0.4 1</ambient><diffuse>0.4 0.5 0.6 1</diffuse></material>
+      </visual>
+      <visual name="motor_back_right">
+        <pose>-0.29 -0.29 0.025 0 0 0</pose>
+        <geometry><cylinder><radius>0.043</radius><length>0.07</length></cylinder></geometry>
+        <material><ambient>0.2 0.3 0.4 1</ambient><diffuse>0.4 0.5 0.6 1</diffuse></material>
+      </visual>
+      <!-- Visible static rotor disks: no claim of simulated motor dynamics. -->
+      <visual name="rotor_front_left">
+        <pose>0.29 0.29 0.069 0 0 0.35</pose>
+        <geometry><cylinder><radius>0.14</radius><length>0.008</length></cylinder></geometry>
+        <material><ambient>0.2 0.75 0.85 1</ambient><diffuse>0.25 0.8 0.9 1</diffuse></material>
+        <transparency>0.18</transparency>
+      </visual>
+      <visual name="rotor_front_right">
+        <pose>0.29 -0.29 0.069 0 0 -0.35</pose>
+        <geometry><cylinder><radius>0.14</radius><length>0.008</length></cylinder></geometry>
+        <material><ambient>0.2 0.75 0.85 1</ambient><diffuse>0.25 0.8 0.9 1</diffuse></material>
+        <transparency>0.18</transparency>
+      </visual>
+      <visual name="rotor_back_left">
+        <pose>-0.29 0.29 0.069 0 0 -0.35</pose>
+        <geometry><cylinder><radius>0.14</radius><length>0.008</length></cylinder></geometry>
+        <material><ambient>0.32 0.4 0.5 1</ambient><diffuse>0.45 0.52 0.65 1</diffuse></material>
+        <transparency>0.18</transparency>
+      </visual>
+      <visual name="rotor_back_right">
+        <pose>-0.29 -0.29 0.069 0 0 0.35</pose>
+        <geometry><cylinder><radius>0.14</radius><length>0.008</length></cylinder></geometry>
+        <material><ambient>0.32 0.4 0.5 1</ambient><diffuse>0.45 0.52 0.65 1</diffuse></material>
+        <transparency>0.18</transparency>
+      </visual>
+      <visual name="skid_left">
+        <pose>0 0.17 -0.17 0 0 0</pose>
+        <geometry><box><size>0.40 0.035 0.035</size></box></geometry>
+        <material><ambient>0.35 0.45 0.55 1</ambient><diffuse>0.5 0.6 0.7 1</diffuse></material>
+      </visual>
+      <visual name="skid_right">
+        <pose>0 -0.17 -0.17 0 0 0</pose>
+        <geometry><box><size>0.40 0.035 0.035</size></box></geometry>
+        <material><ambient>0.35 0.45 0.55 1</ambient><diffuse>0.5 0.6 0.7 1</diffuse></material>
+      </visual>
+      <visual name="leg_left">
+        <pose>0 0.14 -0.105 0 0 0</pose>
+        <geometry><box><size>0.035 0.035 0.14</size></box></geometry>
+        <material><ambient>0.3 0.4 0.5 1</ambient><diffuse>0.45 0.55 0.65 1</diffuse></material>
+      </visual>
+      <visual name="leg_right">
+        <pose>0 -0.14 -0.105 0 0 0</pose>
+        <geometry><box><size>0.035 0.035 0.14</size></box></geometry>
+        <material><ambient>0.3 0.4 0.5 1</ambient><diffuse>0.45 0.55 0.65 1</diffuse></material>
+      </visual>
+      <visual name="navigation_light_left">
+        <pose>0.29 0.29 0.11 0 0 0</pose>
+        <geometry><sphere><radius>0.026</radius></sphere></geometry>
+        <material><diffuse>0.1 1 0.55 1</diffuse><emissive>0.1 1 0.55 1</emissive></material>
+      </visual>
+      <visual name="navigation_light_right">
+        <pose>0.29 -0.29 0.11 0 0 0</pose>
+        <geometry><sphere><radius>0.026</radius></sphere></geometry>
+        <material><diffuse>1 0.15 0.16 1</diffuse><emissive>1 0.15 0.16 1</emissive></material>
+      </visual>
+      <visual name="show_light">
+        <pose>0 0 -0.07 0 0 0</pose>
+        <geometry><sphere><radius>0.055</radius></sphere></geometry>
+        <material><diffuse>0.1 0.75 1 1</diffuse><emissive>0.15 0.8 1 1</emissive></material>
+      </visual>
+    </link>
+    <plugin filename="gz-sim-velocity-control-system" name="gz::sim::systems::VelocityControl">
+      <topic>/model/drone_001/cmd_vel</topic>
+      <initial_linear>0 0 0</initial_linear>
+      <initial_angular>0 0 0</initial_angular>
+    </plugin>
+    <plugin filename="gz-sim-odometry-publisher-system" name="gz::sim::systems::OdometryPublisher">
+      <dimensions>3</dimensions>
+      <odom_frame>world</odom_frame>
+      <robot_base_frame>drone_001/base_link</robot_base_frame>
+      <odom_topic>/model/drone_001/odometry</odom_topic>
+      <odom_publish_frequency>30</odom_publish_frequency>
+    </plugin>
+  </model>
+</sdf>

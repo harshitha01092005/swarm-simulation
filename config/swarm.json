@@ -1,0 +1,12 @@
+{
+  "count": 400,
+  "size": 50.0,
+  "altitude": 35.0,
+  "transition_time": 10.0,
+  "speed": 5.0,
+  "min_distance": 1.5,
+  "collision_avoidance": true,
+  "color_mode": "single",
+  "color": [0.2, 0.8, 1.0],
+  "brightness": 1.0
+}

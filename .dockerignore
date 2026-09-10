@@ -1,0 +1,9 @@
+.git
+.venv
+__pycache__
+.pytest_cache
+build
+install
+log
+artifacts
+bitbucket.log

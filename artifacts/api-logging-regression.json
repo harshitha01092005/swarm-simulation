@@ -1,0 +1,48 @@
+{
+  "passed": false,
+  "scope": "full HTTP-controlled application acceptance",
+  "failure": "AssertionError: POST /api/command returned HTTP 504, expected 400: b'{\"error\": \"Controller did not respond; check simulation status\"}'",
+  "url": "http://127.0.0.1:8765",
+  "initial_test_count": 400,
+  "wall_seconds": 15.813246916979551,
+  "state_polls": 7,
+  "checks": [
+    {
+      "name": "initial IDLE application connected",
+      "passed": true,
+      "count": 400,
+      "capacity": 400
+    }
+  ],
+  "skipped_checks": [],
+  "observed_minimum_separation_m": 1.5,
+  "observed_minimum_separation_margin_m": 0.0,
+  "observed_maximum_interval_speed_m_s": 0.7427978932226263,
+  "maximum_reported_pose_batch_speed_m_s": 0.8317407150346183,
+  "observed_maximum_tracking_error_m": 0.02967814682032688,
+  "rates": {
+    "control_update_hz": {
+      "minimum_nonzero": 30.000207417562052,
+      "mean": 30.000207417562052,
+      "maximum": 30.000207417562052
+    },
+    "pose_update_hz": {
+      "minimum_nonzero": 30.000207417562052,
+      "mean": 30.000207417562052,
+      "maximum": 30.000207417562052
+    },
+    "real_time_factor": {
+      "minimum_nonzero": 1.0000068739184584,
+      "mean": 1.0000068739184584,
+      "maximum": 1.0000068739184584
+    }
+  },
+  "measurement_note": "Positions are Gazebo observations; RGB values are controller commands. Metrics exclude explicit scene-reset grace periods.",
+  "final_state": {
+    "state": "TAKEOFF",
+    "count": 400,
+    "capacity": 400,
+    "connected": true,
+    "formation": "circle"
+  }
+}

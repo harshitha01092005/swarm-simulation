@@ -1,0 +1,82 @@
+{
+  "title": "AEROS \u2014 Swarm Studio",
+  "canvas_count": 1,
+  "render_fps": 60,
+  "connected": true,
+  "simulation_state": "FORMATION COMPLETE",
+  "simulation_error": false,
+  "text": "AEROS\nSWARM STUDIO\nLight show workspace\nReal-time drone simulation\nGazebo connected\nLOCAL\nShow design\n01 / CREATE\nImage to formation\n\u2197\nBring an image to life\nChoose PNG or JPEG \u00b7 up to 8 MiB\nOriginal image\nDrone points\n\nAEROS \u00b7 Starlight sample.png\n\nUpload image\nUse sample\nImage processing\n\u2304\nProcess image\n\u2192\n\n400 drone points \u00b7 512 \u00d7 512 px \u00b7 3,635 candidates\n\nFormation\n\u25c7\nFormation pattern\n\u25ef Circle\n\u2606 Star\n\u25ce Spiral\n\u223f Wave\n\u221e Infinity\n\u25a7 Image\n Apply formation\n\u2197\nFlight settings\nDrone count\n1\u2013400\nFormation size\nm\nAltitude\nm\nMax. speed\nm/s\nTransition\ns\nMin. separation\nm\nCollision avoidance\nPATHS\n\nStop the show to change count or separation.\n\nLight design\n\u2727\nColor effect\nSingle color\nImage colors\nRainbow\nPulse\nColor wave\nBlink\nFade\nLED color\nBrightness \n100%\nApply settings\n\u2197\nOne sky. Endless possibilities.\nLIVE SIMULATION\nImage formation\n\nMeasured Gazebo poses \u00b7 world frame\n\nFit\nFront\nTop\nX\nZ\nWORLD FRAME\nDrag to orbit \u00b7 Scroll to zoom \u00b7 Right-drag to pan\nTelemetry\nLIVE\nDRONES CONNECTED\n400\n/ 400\n400 drones in this show\nSimulation status\nFORMATION COMPLETE\nSimulation time\n01:32\nMean speed\n0.00m/s\nMin. separation\n1.52m\nTracking error\n0.001m\nControl rate\n30.0Hz\nRender rate\n60FPS\nReal-time factor\n1.00\u00d7\n\u2318\nGazebo Harmonic\n\nMeasured world poses\n\nKINEMATIC \u00b7 REDUCED PHYSICS\n\nStatic bodies follow planned trajectories. Motor and lift dynamics are not simulated.\n\nPose age\n6 ms\nDepth layers\n7\n\nDepth keeps dense points separated; front view preserves the image.\n\nImage formation complete\n\nSHOW CONTROL\nImage formation complete\n\u25b6\nStart show\n\u2161\nPause\n\u25a0\nStop\n\u21ba\nReset\nFormation progress\n100%",
+  "state_age_s": 0.254,
+  "state_error": null,
+  "ui": {
+    "enabled": {
+      "start-show": true,
+      "use-sample": true,
+      "apply-formation": true,
+      "apply-settings": true,
+      "stop-show": true
+    },
+    "source_loaded": true,
+    "points_loaded": true,
+    "formation": "image",
+    "color_mode": "image",
+    "settings_dirty": false,
+    "notice_error": false,
+    "notice": "Flight and light settings applied.",
+    "selected_view": "view-fit",
+    "image_metadata": "400 drone points \u00b7 512 \u00d7 512 px \u00b7 3,635 candidates"
+  },
+  "console": [],
+  "exercise": true,
+  "wall_seconds": 66.19999008299783,
+  "checks": [
+    {
+      "name": "native WebGL view connected to measured Gazebo poses",
+      "passed": true,
+      "count": 400
+    },
+    {
+      "name": "Start button completes measured circle",
+      "passed": true,
+      "target_error_m": 0.0013011307243576268
+    },
+    {
+      "name": "Use sample processes image and displays both previews",
+      "passed": true,
+      "metadata": "400 drone points \u00b7 512 \u00d7 512 px \u00b7 3,635 candidates"
+    },
+    {
+      "name": "Apply formation reaches measured image targets",
+      "passed": true,
+      "target_error_m": 0.0008133651027611203
+    },
+    {
+      "name": "Image color setting applies through the UI",
+      "passed": true,
+      "distinct_commanded_colors": 177
+    },
+    {
+      "name": "Front and Fit controls frame the completed image",
+      "passed": true
+    }
+  ],
+  "failure": null,
+  "measured_state": {
+    "state": "FORMATION_COMPLETE",
+    "formation": "image",
+    "count": 400,
+    "actual_count": 400,
+    "connected": true,
+    "progress": 1,
+    "actual_simulation_time": 92.508329633,
+    "pose_sequence": 2776,
+    "tracking_error_m": 0.0008133651027611203,
+    "actual_min_separation_m": 1.5190219303321808,
+    "control_update_hz": 29.999169448792706,
+    "pose_update_hz": 29.999169448792706,
+    "real_time_factor": 0.9999722749608729,
+    "colors_source": "controller",
+    "target_error_m": 0.0008133651027611203
+  },
+  "passed": true
+}

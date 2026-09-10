@@ -1,0 +1,6 @@
+* text=auto
+*.sh text eol=lf
+*.py text eol=lf
+
+# Keep upstream vendored JavaScript intact and separate from project statistics.
+drone_swarm/gui/web/vendor/** linguist-vendored=true -whitespace

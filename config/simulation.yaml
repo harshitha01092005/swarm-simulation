@@ -1,0 +1,9 @@
+# Phase 1: one drone with reduced-physics velocity control.
+drone_demo:
+  ros__parameters:
+    use_sim_time: true
+    target_altitude: 4.0
+    max_speed: 1.5
+    transition_time: 6.0
+    update_rate: 30.0
+    feedback_timeout: 2.0

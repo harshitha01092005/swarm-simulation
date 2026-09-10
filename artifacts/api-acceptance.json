@@ -1,0 +1,96 @@
+{
+  "passed": true,
+  "scope": "full HTTP-controlled application acceptance",
+  "failure": null,
+  "url": "http://127.0.0.1:8765",
+  "initial_test_count": 400,
+  "wall_seconds": 87.03484725000453,
+  "state_polls": 833,
+  "checks": [
+    {
+      "name": "initial IDLE application connected",
+      "passed": true,
+      "count": 400,
+      "capacity": 400
+    },
+    {
+      "name": "invalid JSON and cross-origin requests rejected; active count change rejected",
+      "passed": true
+    },
+    {
+      "name": "moving swarm pauses with frozen poses, clock, and colors",
+      "passed": true,
+      "measured_drift_m": 0.0
+    },
+    {
+      "name": "resume completes measured circle formation",
+      "passed": true
+    },
+    {
+      "name": "sample uploaded, processed, and preview returned",
+      "passed": true,
+      "sample_bytes": 23374,
+      "preview_bytes": 24614
+    },
+    {
+      "name": "image formation reaches measured targets with source colors",
+      "passed": true,
+      "distinct_colors": 177
+    },
+    {
+      "name": "pulse changes colors while measured positions hold",
+      "passed": true,
+      "maximum_rgb_change": 0.5851753285683665
+    },
+    {
+      "name": "animation pause freezes both poses and RGB",
+      "passed": true,
+      "measured_drift_m": 0.0
+    },
+    {
+      "name": "resumed animation transitions to a measured spiral",
+      "passed": true
+    },
+    {
+      "name": "count20 and reset restore measured grid while preserving image",
+      "passed": true,
+      "grid_error_m": 0.0002500000000000391
+    },
+    {
+      "name": "capacity400 restored in connected IDLE",
+      "passed": true,
+      "grid_error_m": 0.0013435028842538213
+    }
+  ],
+  "skipped_checks": [],
+  "observed_minimum_separation_m": 1.5,
+  "observed_minimum_separation_margin_m": 0.0,
+  "observed_maximum_interval_speed_m_s": 5.364290240976916,
+  "maximum_reported_pose_batch_speed_m_s": 8.075377737815504,
+  "observed_maximum_tracking_error_m": 0.33332093094509574,
+  "rates": {
+    "control_update_hz": {
+      "minimum_nonzero": 27.58626614587314,
+      "mean": 29.831329520972254,
+      "maximum": 30.354953088241682
+    },
+    "pose_update_hz": {
+      "minimum_nonzero": 26.6010423549491,
+      "mean": 29.80798994007389,
+      "maximum": 31.32691123821027
+    },
+    "real_time_factor": {
+      "minimum_nonzero": 0.8916113564456511,
+      "mean": 0.9938619087989145,
+      "maximum": 1.0279142338872025
+    }
+  },
+  "measurement_note": "Positions are Gazebo observations; RGB values are controller commands. Metrics exclude explicit scene-reset grace periods.",
+  "final_state": {
+    "state": "IDLE",
+    "count": 400,
+    "capacity": 400,
+    "connected": true,
+    "formation": "circle"
+  }
+}

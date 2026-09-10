@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "error": null,
+  "count": 20,
+  "wall_seconds": 34.33126448599978,
+  "formations": [
+    {
+      "formation": "circle",
+      "wall_seconds": 3.100350358000469,
+      "target_error_m": 0.0,
+      "measured_displacement_m": 0.0
+    },
+    {
+      "formation": "star",
+      "wall_seconds": 3.0327324030004092,
+      "target_error_m": 0.0,
+      "measured_displacement_m": 5.599999999999999
+    },
+    {
+      "formation": "spiral",
+      "wall_seconds": 3.066630768000323,
+      "target_error_m": 0.0,
+      "measured_displacement_m": 9.07980999479094
+    },
+    {
+      "formation": "wave",
+      "wall_seconds": 3.1673241609996694,
+      "target_error_m": 0.0,
+      "measured_displacement_m": 6.983943248099569
+    },
+    {
+      "formation": "infinity",
+      "wall_seconds": 3.032685786000002,
+      "target_error_m": 0.0,
+      "measured_displacement_m": 5.4386227513854655
+    }
+  ],
+  "observed_states": [
+    "FORMATION_COMPLETE",
+    "IDLE",
+    "TAKEOFF",
+    "TRANSITIONING"
+  ],
+  "observed_minimum_separation_m": 1.2645684923455935,
+  "observed_maximum_interval_speed_m_s": 4.562470980757948,
+  "observed_maximum_tracking_error_m": 0.16324713875049499,
+  "received_gazebo_pose_batches_hz": 30.004463782003526,
+  "maximum_control_update_hz": 30.01724916048578,
+  "separation_requirement": "No exact overlap; strict configured separation is a separate collision-avoidance gate"
+}
